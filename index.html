@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>KELBRIC UI LAB</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">KELBRIC TECHNOLOGIES</p>
+      <h1>UI LAB</h1>
+      <p class="lede">A hands-on interaction playground. Read fast. Tap <strong>TRY IT</strong>. Break things safely.</p>
+    </div>
+    <button id="reduceMotion" class="ghost">Reduce motion</button>
+  </header>
+
+  <main>
+    <section class="intro panel">
+      <div>
+        <span class="chip">BUILD 001</span>
+        <h2>What this is</h2>
+        <p>No story. No backend. No login. Each specimen isolates one interaction so you can feel what mobile web UI can do before we use it in a real product.</p>
+      </div>
+      <div class="legend">
+        <span>● EASY</span><span>●● MODERATE</span><span>●●● ADVANCED</span>
+      </div>
+    </section>
+
+    <nav class="jump panel" aria-label="Lab categories">
+      <a href="#motion">Motion</a>
+      <a href="#gesture">Gestures</a>
+      <a href="#physical">Physical UI</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#micro">Microinteractions</a>
+      <a href="#images">Images</a>
+      <a href="#shala">SHALA experiments</a>
+    </nav>
+
+    <section id="motion" class="lab-section">
+      <div class="section-head"><p class="eyebrow">01</p><h2>Motion Basics</h2></div>
+      <div class="grid">
+        <article class="card">
+          <div class="meta"><span>Fade + slide</span><span>● EASY</span></div>
+          <p>Entrances can soften hierarchy without blocking interaction.</p>
+          <div class="stage center"><div id="fadeBox" class="demo-box">HELLO</div></div>
+          <button data-action="fade">TRY IT</button>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Spring</span><span>● EASY</span></div>
+          <p>Useful for playful confirmations, compact lids, drawers, and cards.</p>
+          <div class="stage center"><div id="springDot" class="spring-dot"></div></div>
+          <button data-action="spring">TRY IT</button>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Stagger</span><span>● EASY</span></div>
+          <p>Bring a group in one-by-one instead of everything appearing at once.</p>
+          <div class="stage stagger-stage" id="staggerStage">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button data-action="stagger">TRY IT</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="gesture" class="lab-section">
+      <div class="section-head"><p class="eyebrow">02</p><h2>Touch & Gesture</h2></div>
+      <div class="grid">
+        <article class="card">
+          <div class="meta"><span>Drag + snap</span><span>●● MODERATE</span></div>
+          <p>Drag the puck. Release it; it snaps to the nearest edge.</p>
+          <div id="dragStage" class="stage drag-stage"><div id="dragPuck" class="puck">DRAG</div></div>
+          <div class="hint">TRY IT directly ↑</div>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Swipe card</span><span>●● MODERATE</span></div>
+          <p>Swipe horizontally to dismiss or switch items.</p>
+          <div class="stage center swipe-wrap"><div id="swipeCard" class="swipe-card">SWIPE ME</div></div>
+          <div class="hint">TRY IT directly ↑</div>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Long press</span><span>●● MODERATE</span></div>
+          <p>Hold for 650 ms. Good for hidden secondary actions.</p>
+          <div class="stage center"><button id="holdButton" class="hold-button">PRESS & HOLD</button></div>
+          <div id="holdStatus" class="hint">Waiting…</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="physical" class="lab-section">
+      <div class="section-head"><p class="eyebrow">03</p><h2>Physical UI</h2></div>
+      <div class="grid">
+        <article class="card">
+          <div class="meta"><span>Drawer</span><span>●● MODERATE</span></div>
+          <p>A UI surface can behave like a physical object instead of a modal.</p>
+          <div class="stage drawer-stage">
+            <div id="drawer" class="drawer"><strong>DRAWER</strong><span>Swipe/tap controls live here.</span></div>
+          </div>
+          <button data-action="drawer">TRY IT</button>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Card flip</span><span>● EASY</span></div>
+          <p>Front/back surfaces for compact backs, hidden controls, or metadata.</p>
+          <div class="stage center">
+            <div id="flipCard" class="flip">
+              <div class="flip-inner">
+                <div class="flip-face front">FRONT</div>
+                <div class="flip-face back">BACK</div>
+              </div>
+            </div>
+          </div>
+          <button data-action="flip">TRY IT</button>
+        </article>
+        <article class="card span-2">
+          <div class="meta"><span>Pull-down studio backdrop</span><span>●●● ADVANCED</span></div>
+          <p><strong>Swipe down = inspect.</strong> <strong>Tap unfurled backdrop = choose.</strong> This is finger-driven, not a canned GIF.</p>
+          <div class="studio-lab">
+            <div class="studio-roller">
+              <span class="roller-cap"></span>
+              <span class="roller-label">SHALA STUDIO</span>
+              <span class="roller-cap right"></span>
+            </div>
+            <div id="studioSheet" class="studio-sheet">
+              <div class="studio-photo disco">
+                <div class="neon">Good Vibes<br/>Only</div>
+              </div>
+              <div class="sheet-bar"></div>
+            </div>
+            <div id="pullHandle" class="pull-handle" aria-label="Drag studio backdrop">●</div>
+            <div id="studioState" class="studio-state">ROLLED — swipe down to preview</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="lab-section">
+      <div class="section-head"><p class="eyebrow">04</p><h2>Cards & Galleries</h2></div>
+      <div class="grid">
+        <article class="card span-2">
+          <div class="meta"><span>Snap carousel</span><span>● EASY</span></div>
+          <p>Native-feeling horizontal browsing using scroll snap.</p>
+          <div class="carousel">
+            <div>01</div><div>02</div><div>03</div><div>04</div><div>05</div>
+          </div>
+          <div class="hint">TRY IT: swipe horizontally ↑</div>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Preview → commit</span><span>● EASY</span></div>
+          <p>Tap a tile to preview. Commit stays a separate action.</p>
+          <div id="previewGrid" class="mini-grid">
+            <button data-choice="A">A</button><button data-choice="B">B</button><button data-choice="C">C</button>
+          </div>
+          <div id="previewChoice" class="choice-preview">Nothing previewed</div>
+          <button id="commitChoice" disabled>SELECT</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="micro" class="lab-section">
+      <div class="section-head"><p class="eyebrow">05</p><h2>Microinteractions</h2></div>
+      <div class="grid">
+        <article class="card">
+          <div class="meta"><span>Favorite</span><span>● EASY</span></div>
+          <p>A tiny state change can still feel deliberate.</p>
+          <div class="stage center"><button id="heart" class="heart" aria-pressed="false">♡</button></div>
+          <div class="hint">TRY IT directly ↑</div>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Toggle</span><span>● EASY</span></div>
+          <p>Persistent binary controls with visible state.</p>
+          <div class="stage center">
+            <label class="switch"><input id="demoToggle" type="checkbox"><span></span></label>
+          </div>
+          <div id="toggleStatus" class="hint">OFF</div>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Success pulse</span><span>● EASY</span></div>
+          <p>Feedback without opening another screen.</p>
+          <div class="stage center"><div id="successBadge" class="success-badge">READY</div></div>
+          <button data-action="success">TRY IT</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="images" class="lab-section">
+      <div class="section-head"><p class="eyebrow">06</p><h2>Image Interactions</h2></div>
+      <div class="grid">
+        <article class="card span-2">
+          <div class="meta"><span>Before / after wipe</span><span>●● MODERATE</span></div>
+          <p>Drag the divider. Useful for comparisons where both images occupy the same frame.</p>
+          <div id="compare" class="compare">
+            <div class="compare-back">RESULT</div>
+            <div id="compareFront" class="compare-front">REFERENCE</div>
+            <input id="compareRange" type="range" min="0" max="100" value="50" />
+          </div>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Lightbox</span><span>● EASY</span></div>
+          <p>Tap an image to focus on it without navigating away.</p>
+          <button id="openLightbox" class="poster">OPEN IMAGE</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="shala" class="lab-section">
+      <div class="section-head"><p class="eyebrow">07</p><h2>SHALA Experiments</h2></div>
+      <div class="grid">
+        <article class="card">
+          <div class="meta"><span>Compact open</span><span>●● MODERATE</span></div>
+          <p>A hinged object can expose controls without a standard menu.</p>
+          <div class="stage center">
+            <div id="compact" class="compact">
+              <div class="compact-lid">SHALA</div>
+              <div class="compact-base">EXPLORE</div>
+            </div>
+          </div>
+          <button data-action="compact">TRY IT</button>
+        </article>
+        <article class="card">
+          <div class="meta"><span>Rack slide-in</span><span>● EASY</span></div>
+          <p>Equipment can enter and exit while the root image stays put.</p>
+          <div class="stage rack-stage"><div id="rack" class="rack">CLOTHES RACK</div></div>
+          <button data-action="rack">TRY IT</button>
+        </article>
+        <article class="card">
+          <div class="meta"><span>InspOOTD</span><span>● EASY</span></div>
+          <p>Deterministic two-panel output: Reference | Result. No AI-generated composite needed.</p>
+          <div id="inspootd" class="inspootd"><div>REFERENCE</div><div>RESULT</div></div>
+          <button data-action="inspootd">TRY IT</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="lightbox">
+    <button id="closeLightbox" class="close">×</button>
+    <div class="lightbox-art">IMAGE LIGHTBOX</div>
+  </dialog>
+
+  <footer>
+    <strong>KELBRIC UI LAB</strong>
+    <span>Static · Mobile-first · No backend</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
